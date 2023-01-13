@@ -21,6 +21,7 @@ img {
     position: relative;
     padding-top: 58px;
     max-width: 100%;
+    min-width: 100%;
     text-align: center;
 }
 
