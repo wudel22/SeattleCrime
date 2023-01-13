@@ -1,0 +1,52 @@
+body {
+    font-family: "Noto Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+h1 {
+    margin-top: 5rem;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 18px;
+    font-style: bold;
+}
+
+img {
+    position: relative;
+    padding-top: 58px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.highlight {
+    font-weight: bolder;
+    color: white;
+    margin: 0 -0.4em;
+    padding: 0.1em 0.4em;
+    border-radius: 0.8em 0.3em;
+    background: transparent;
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 0, 204, 0.1),
+      #ff00884e 4%,
+      rgba(255, 0, 157, 0.097)
+    );
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .link-w {
+    color: white !important;
+    text-decoration: underline !important;
+  }
+
+  .link-w:hover {
+    transition: 0.5s;
+    background-color: #ff00884e;
+  }
