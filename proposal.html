@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link
@@ -103,7 +104,7 @@
         <h2>Proposed Application</h2>
         <br>
         <h3 id="section-2-1">Who are the users of the application?</h3>
-        <p>The users are going to be mainly UW students and faculty, and residents in the Seattle area-- specifically, 
+        <p>The users are going to be mainly UW students and faculty, and residents in the Seattle area-- specifically,
             in the U-District area. Through this
             app, users will be able to see past and current crimes within the Seattle area and the time and location the
             crimes occurred. Minority groups who do not have access to the news or UW Alerts might not have access to
@@ -118,38 +119,35 @@
 
         <h3 id="section-2-2">What will the users do with the web app?</h3>
         <p>
-            The user will able to interact with our map 
+            The users will be able to utilize the interactive features so they can avoid streets that has high crime
+            especially when they are walking alone or at night.
+        <ul>
+            <li>The user can view the <mark class="highlight">map</mark> by zooming in and zooming out
+                of the map to specifically see the color-coded areas near where they are located.</li>
+            <li>The developers will
+                organize and visualize crime datasets to <mark class="highlight">color-code different areas</mark> in
+                the city of Seattle to indicate
+                which
+                street or community has high or low crime rates. </li>
+            <li>There will also be a <mark class="highlight">search feature</mark> to see
+                specific communities within the city of Seattle which can be convenient for users who are planning to go
+                to
+                certain areas.</li>
+        </ul>
         </p>
         <br>
 
         <h3 id="section-2-3">What kind of information will the users be viewing?</h3>
         <p>
-            The users will utilize the interactive features so they can avoid dangerous pathways or streets whenever they 
-            are walking late at night or walking alone. Since there are many crime incidents around University of Washington
-            it will be useful for students to navigate their way through using these features: 
-            <ui>
-                <li> 
-                    The users can view the <mark class="highlight">map</mark> by zomming in and out of the map to see the 
-                    color-coded areas near where they are located
-                </li>
-
-                <li>
-                    The developers will organize and visualize crime datasets to <mark class="highlight">color-code different areas </mark>
-                    in the city of Seattle to indicate which street can potentially be more harmful compared to other streets depending 
-                    on high or low crime rates.
-                </li>
-                <li>
-                    There will also be a <mark class="highlight">search feature</mark> to see specific communities within the city of
-                    Seattle which can be convenient for users whoare planning to travel certain areas within Seattle. 
-                </li>
-            </ui>
-            The datasets we are going to use will provide users information with crime start/end date, location, and 
-            categorized crimes depending on its offense. The users will view crime information that will be first grouped 
-            into location of the community or street. The datasets contains crime data from 2008-present and location will
-            be limited to city of Seattle. The street or community will be colored coded to indicate the number of crimes. 
-            Since the crimes are going to be categorized, the users can look at how frequent is certain type of offense 
-            through search feature. The <a href ="https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5" class="link-w">SPD Crime Data: 2008 - present</a> website provides the csv files for crim information specifically 
-            in city of Seattle. 
+            The information users will be viewing will be the location and date of categorized crime information through
+            a map. The crime information will be first grouped into the location of the community or street. Then
+            depending on the number of crimes within 2008-present, it will be colored coded to indicate the number of
+            crimes. The crimes will also be categorized within the location so the users can also look at how frequent
+            is certain type of offense through the search feature. The <a
+                href="https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5" class="link-w">SPD
+                Crime Data:
+                2008-Present | City of Seattle Open Data portal</a> website provides the csv files for crime information
+            specifically in Seattle.
         </p>
         <br>
 
@@ -164,9 +162,18 @@
     </section>
     <br>
 
+    <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+</body>
+
+<footer class="bg-secondary text-lg-start p-3">
+    <section class="container tp-2">
+        <p class="text-center p-3">Project for INFO340 at the University of Washington.</p>
+    </section>
+</footer>
+
 </body>
 
 </html>
-
-
-
