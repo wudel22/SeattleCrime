@@ -26,9 +26,9 @@ h3 {
   padding-top: 58px;
   text-align: center;
   display: block;
-  width: 100%;  
-  height: auto;  
-} 
+  height: auto;
+  width: 100%;
+}
 
 .highlight {
   font-weight: bolder;
@@ -45,12 +45,16 @@ h3 {
   box-decoration-break: clone;
 }
 
+.table-padding {
+  padding:10px;
+}
+
 .link-w {
   color: white !important;
   text-decoration: underline !important;
 }
 
-#btn-back-to-top {
+.btn-back-to-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -74,21 +78,6 @@ footer p {
   padding-bottom: 8px;
 }
 
-@media(max-width: 598px) {
-
-  h1,
-  h2,
-  h3,
-  p {
-    padding: 5%;
-  }
-
-  .header-img {
-    width: auto;
-    height: 50vh;
-    object-fit: cover;
-  }
-}
 
 @media(min-width: 768px) {
   html {
@@ -99,6 +88,11 @@ footer p {
     display: block;
     bottom: 0;
     right: 0;
+  }
+
+  .header-img {
+    width: 100%;
+    height: auto;
   }
 }
 
