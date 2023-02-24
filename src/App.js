@@ -2,7 +2,6 @@ import React from 'react';
 import { NavbarR } from './Navbar.js'
 import { Map } from './Map.js'
 import { About } from './About';
-import { Table } from './Table';
 import { Feature } from './Feature';
 
 import {
@@ -18,6 +17,8 @@ function App(props) {
     const parseCrimeData = props.crimeData.map((crime) => {
         return { ...crime, "Report DateTime": new Date(crime["Report DateTime"]) }
     })
+
+    console.log(parseCrimeData);
 
     const uniqueCountry = [...new Set(props.crimeData.reduce((all, current) => {
         return all.concat([current.MCPP]);

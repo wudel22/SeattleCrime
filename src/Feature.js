@@ -1,10 +1,31 @@
 import React, {useState} from 'react';
 import {Table} from './Table';
-import DatePicker from 'react-datepicker';
+//import DatePicker from 'react-datepicker';
 
 export function Feature(props){
     const {parseCrimeData} = props;
+
+    const dates = parseCrimeData.map((crime) => {
+        return crime["Report DateTime"]
+    });
+
+    /*let onlyDate = dates.map((date) =>{
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+
+        let formatDate = `${day}-${month}-${year}`;
+        return formatDate
+    })
+
+    console.log(onlyDate)
+
+
+    let recentDate = new Date(Math.max(...onlyDate));
+    console.log(recentDate); */
+
     const [county, setCounty] = useState('');
+
     const [date, setDate] = useState(new Date());
 
     const optionElems = props.crimeOptions.map((crime) => {
@@ -24,14 +45,14 @@ export function Feature(props){
     }
 
     return(
-        <div class="bg-secondary">
-        <div class="container"></div>
-        <div class="row"></div>
-        <div class="col-md-12"></div>
+        <div className="bg-secondary">
+        <div className="container"></div>
+        <div className="row"></div>
+        <div className="col-md-12"></div>
         <h1>Search Crimes</h1>
         <h2>Enter name of counties or date to see crimes</h2>
 
-        <label for="county_form">Enter County:</label>
+        <label htmlFor="county_form">Enter County:</label>
   
             <select className="form-select" id="countySelect" placeholder="Enter County" 
                     onChange={countyCallBack} value={county}>
@@ -40,14 +61,13 @@ export function Feature(props){
             </select>
 
 
-        <label for="date_form">Enter Date:</label>
+        {/* <label htmlFor="date_form">Enter Date:</label>
         <form id="date_form">
-            <input class="form-control" id="date-input" placeholder="Enter date"/>
             <DatePicker
                 showIcon
-                selected={date}
+                selected= {date}
                 onChange={dateCallBack}/>
-        </form>
+        </form> */}
 
        <Table parseCrimeData={parseCrimeData} county={county} date={date}/>
     </div>

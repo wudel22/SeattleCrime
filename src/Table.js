@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 export function Table(props){
     const {parseCrimeData, county, date} = props;
     let crimeData = parseCrimeData;
+    console.log(crimeData);
 
     if(county != ""){
         crimeData = crimeData.filter((crime) => {
@@ -10,16 +11,22 @@ export function Table(props){
         })
     }
 
-    if(date != null){
-        crimeData = crimeData.filter((crime) => {
-            return crime["Report DateTime"] == date
-        })
-    }
+    // if(date != null){
+    //     crimeData = crimeData.filter((crime) => {
+    //         return crime["Report DateTime"] == date
+    //     })
+    // }
+
+        
+    
+
+
+    console.log(crimeData);
 
     let tableRow = crimeData.map((crime) => {
         
         return(
-            <tr key={crime}>
+            <tr key={crime["Offense ID"]}>
                 <td>{crime["Report DateTIme"]}</td>
                 <td>{crime.MCPP}</td>
                 <td>{crime["Offense Parent Group"]}</td>
@@ -27,6 +34,8 @@ export function Table(props){
             </tr>
         )
     })
+
+    console.log(tableRow);
 
 
     return (
