@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Navbar(props) {
+export function NavbarR() {
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-secondary fixed-top">
             <a className="navbar-brand" href="index.html">Seattle Crime 🔎</a>
