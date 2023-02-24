@@ -7,15 +7,13 @@ const parseCrimeData = crimeData.map((crime) =>{
     return {...crime, "Report DateTime": new Date(crime["Report DateTIme"])}
 })
 
-function App() {
-
-
+function App(props) {
     return (
 
         <body className="bg-dark text-light">
             <header>
                 {/* Navbar */}
-                <NavbarR />
+                <NavbarR crimeData={props.parseCrimeData}/>
 
                 {/* Basic info and titles */}
                 <section id="top">
