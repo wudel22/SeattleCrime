@@ -66,6 +66,10 @@ h3 {
   background-color: #ff00884e;
 }
 
+.shadow {
+  box-shadow: 0px 0px 25px 1px #000000;
+}
+
 footer {
   display: none;
   color: white;
