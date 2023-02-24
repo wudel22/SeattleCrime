@@ -5,7 +5,7 @@ import { Map } from './Map.js'
 
 function App() {
     return (
-        
+
         <body className="bg-dark text-light">
             <header>
                 {/* Navbar */}
@@ -14,7 +14,7 @@ function App() {
                 {/* Basic info and titles */}
                 <section id="top">
                     <img src="./img/seattle-skyline.jpg" alt="Seattle Space Needle and buildings"
-                        title="Image by Ally Laws from Pixabay" className="header-img"/>
+                        title="Image by Ally Laws from Pixabay" className="header-img" />
                 </section>
 
                 <section id="section-0" className="container">
