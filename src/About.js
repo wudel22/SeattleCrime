@@ -1,27 +1,8 @@
 import React from 'react';
 
-export function About(props){
-
-    const {crimeData} = props;
+export function About(){
     return(
         <body className="bg-dark text-light">
-            <header>
-                {/* Navbar */}
-                <NavbarR crimeData={crimeData}/>
-
-                {/* Basic info and titles */}
-                <section id="top">
-                    <img src="./img/seattle-skyline.jpg" alt="Seattle Space Needle and buildings"
-                        title="Image by Ally Laws from Pixabay" className="header-img" />
-                </section>
-
-                <section id="section-0" className="container">
-                    <div className="jumbotron jumbotron-fluid bg-dark">
-                        <h1 className="display-4">About the Project: Seattle Crime 🔎 </h1>
-                        <p className="lead">by: Hannah Wee, Ashley Mochizuki, Nicole Herman, Delaney Wu</p>
-                    </div>
-                </section>
-            </header>
 
             <div id="sec-1" className="mt-3 pb-3">
 
