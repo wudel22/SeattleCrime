@@ -1,9 +1,15 @@
 import React from 'react';
 import { NavbarR } from './Navbar.js'
 import { Map } from './Map.js'
+import crimeData from './data/crimeData.json'
 
+const parseCrimeData = crimeData.map((crime) =>{
+    return {...crime, "Report DateTime": new Date(crime["Report DateTIme"])}
+})
 
 function App() {
+
+
     return (
 
         <body className="bg-dark text-light">
