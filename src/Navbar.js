@@ -2,7 +2,6 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {Table} from './Table';
 import {
     BrowserRouter as Router,
     Routes,
@@ -15,40 +14,21 @@ export function NavbarR(props) {
     const {crimeData} = props;
 
     return (
-        <Router>
+        
             <Navbar bg="secondary" variant="dark" expand="lg" fixed="top">
             <Container>
-                <Link href="/">Seattle Crime 🔎</Link>
+                <Link to="/">Seattle Crime 🔎</Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" aria-label="Toggle navigation" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                    <Link href="/">About</Link>
-                    <Link href="/map">Map</Link>
-                    <Link href="/table">Table Analysis</Link>
-                    <Link href="/tips">Resources and Tips</Link>
+                    <Link to="/">About</Link>
+                    <Link to="/map">Map</Link>
+                    <Link to="/table">Table Analysis</Link>
+                    <Link to="/tips">Resources and Tips</Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>
             </Navbar>
-
-            <Routes>
-                <Route path="/">
-                    
-                </Route>
-
-                <Route path="/map">
-                    
-                </Route>
-
-                <Route path="/table">
-                    <Table crimeData={crimeData}/>
-                </Route>
-
-                <Route path="/tips">
-                    
-                </Route>
-            </Routes>
-        </Router>
     );
         
 }

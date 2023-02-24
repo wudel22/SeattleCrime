@@ -19,7 +19,7 @@ export function Table(props){
     let tableRow = crimeData.map((crime) => {
         
         return(
-            <tr>
+            <tr key={crime}>
                 <td>{crime["Report DateTIme"]}</td>
                 <td>{crime.MCPP}</td>
                 <td>{crime["Offense Parent Group"]}</td>
