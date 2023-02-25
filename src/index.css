@@ -1,11 +1,14 @@
 /* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
+@import "bootstrap/dist/css/bootstrap.css";
 
 /* Set fonts for all pages */
 body {
   font-family: "Noto Sans", sans-serif;
   font-size: 18px;
   font-weight: 200;
+  background-color: #343a40;
+  color: white;
 }
 
 /* "About" page rules */
@@ -64,7 +67,7 @@ h3 {
 }
 
 footer {
-  display: none;
+  background-color: #6c757d;
   color: white;
   width: 100%;
 }
@@ -86,7 +89,7 @@ footer p {
   border-radius: .3rem;
 }
 
-@media(min-width: 768px) {
+/* @media(min-width: 768px) {
   html {
     height: 100;
   }
@@ -118,4 +121,4 @@ footer p {
     bottom: 0;
     right: 0;
   }
-}
+} */

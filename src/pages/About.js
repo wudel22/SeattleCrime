@@ -1,19 +1,23 @@
 import React from 'react';
 
-export function About(){
-    return(
-        <>
 
-                <section id="section-0" className="container">
-                    <div className="jumbotron jumbotron-fluid bg-dark">
-                        <h1 className="display-4">About the Project: Seattle Crime 🔎 </h1>
-                        <p className="lead">by: Hannah Wee, Ashley Mochizuki, Nicole Herman, Delaney Wu</p>
-                    </div>
-                </section>
-            
+export function AboutPage() {
+    return (
+        <>
+            <section id="top">
+                <img src={"img/seattle-skyline.jpg"} alt="Seattle Space Needle and buildings"
+                    title="Image by Ally Laws from Pixabay" className="header-img"/>
+            </section>
+
+            <section id="section-0" className="container">
+                <div className="jumbotron jumbotron-fluid bg-dark">
+                    <h1 className="display-4">About the Project: Seattle Crime 🔎 </h1>
+                    <p className="lead">by: Hannah Wee, Ashley Mochizuki, Nicole Herman, Delaney Wu</p>
+                </div>
+            </section>
+
             <div id="sec-1" className="mt-3 pb-3">
 
-                {/* Section 1: Problem description */}
                 <div className="bg-secondary">
 
                     <section id="section-1" className="container mt-3 pb-3">
@@ -37,7 +41,6 @@ export function About(){
                 </div>
             </div>
 
-            {/* Section 2: Proposed application */}
             <section id="section-2" className="container mt-3 pb-3">
                 <h2 className="pt-3 pb-3">Proposed Application</h2>
                 <h3 id="section-2-1">Who are the users of the application?</h3>
@@ -99,13 +102,6 @@ export function About(){
             <button type="button" className="btn btn-danger btn-floating btn-lg btn-back-to-top" aria-label="Back to Top">
                 <i className="fa fa-arrow-up" aria-hidden="true"></i>
             </button>
-
-            <footer>
-                <div className="container">
-                    <p>&copy; 2023 Ashley Mochizuki, Hannah Wee, Nicole Herman, Delaney Wu </p>
-                </div>
-            </footer>
-
         </>
     );
 }

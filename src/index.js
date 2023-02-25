@@ -4,11 +4,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import App from './App';
 import SEATTLE_CRIME from './data/crimeDatas.json'
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <App crimeData={SEATTLE_CRIME}/>
-  </React.StrictMode>
+  </BrowserRouter>
 );
 

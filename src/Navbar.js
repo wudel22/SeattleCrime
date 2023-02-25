@@ -1,36 +1,28 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
-  } from "react-router-dom";
 
-export function NavbarR(props) {
 
-    const {crimeData} = props;
-
+export function NavbarR() {
     return (
-        
-            <Navbar bg="secondary" variant="dark" expand="lg" fixed="top">
+        <Navbar bg="secondary" variant="dark" expand="lg" fixed="top">
             <Container>
-                <Link to="/">Seattle Crime 🔎</Link>
+                <NavLink to="/" className="nav-link navbar-brand ms-3">Seattle Crime 🔎</NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" aria-label="Toggle navigation" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
-                    <Link to="/">About</Link>
-                    <Link to="/map">Map</Link>
-                    <Link to="/table">Table Analysis</Link>
-                    <Link to="/tips">Resources and Tips</Link>
-                </Nav>
+                    <Nav className="me-auto">
+                        <NavLink to="/" className="nav-link">About</NavLink>
+                        <NavLink to="/map" className="nav-link">Map</NavLink>
+                        <NavLink to="/table" className="nav-link">Table Analysis</NavLink>
+                        <NavLink to="/tips" className="nav-link">Resources and Tips</NavLink>
+                    </Nav>
                 </Navbar.Collapse>
             </Container>
-            </Navbar>
+        </Navbar>
     );
-        
+
 }
 
 // export function NavbarR() {
@@ -45,16 +37,16 @@ export function NavbarR(props) {
 //             <div className="collapse navbar-collapse" id="navbarSupportedContent">
 //                 <ul className="navbar-nav">
 //                     <li className="nav-item">
-//                         <a className="nav-link" href="index.html">About</a>
+//                         <a className="nav-NavLink" href="index.html">About</a>
 //                     </li>
 //                     <li className="nav-item">
-//                         <a className="nav-link" href="map.html">Map</a>
+//                         <a className="nav-NavLink" href="map.html">Map</a>
 //                     </li>
 //                     <li className="nav-item">
-//                         <a className="nav-link" href="table-page.html">Table Analysis</a>
+//                         <a className="nav-NavLink" href="table-page.html">Table Analysis</a>
 //                     </li>
 //                     <li class="nav-item">
-//                         <a className="nav-link" href="resource-tip.html">Resources and Tips</a>
+//                         <a className="nav-NavLink" href="resource-tip.html">Resources and Tips</a>
 //                     </li>
 //                 </ul>
 //             </div>
