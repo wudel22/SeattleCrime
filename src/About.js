@@ -2,8 +2,15 @@ import React from 'react';
 
 export function About(){
     return(
-        <body className="bg-dark text-light">
+        <>
 
+                <section id="section-0" className="container">
+                    <div className="jumbotron jumbotron-fluid bg-dark">
+                        <h1 className="display-4">About the Project: Seattle Crime 🔎 </h1>
+                        <p className="lead">by: Hannah Wee, Ashley Mochizuki, Nicole Herman, Delaney Wu</p>
+                    </div>
+                </section>
+            
             <div id="sec-1" className="mt-3 pb-3">
 
                 {/* Section 1: Problem description */}
@@ -99,6 +106,6 @@ export function About(){
                 </div>
             </footer>
 
-        </body>
+        </>
     );
 }
