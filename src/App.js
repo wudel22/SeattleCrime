@@ -7,15 +7,29 @@ import { AboutPage } from './pages/About';
 import { MapPage } from './pages/MapPage'
 import { Feature } from './Feature';
 
+<App children={{ map: <Map /> }} />
+
 function App(props) {
+    var crimeData = props.crimeData;
+    
+    const parseCrimeData = props.crimeData.map((crime) => {
+        return { ...crime, "Report DateTime": new Date(crime["Report DateTime"]) }
+    })
+
+    console.log(parseCrimeData);
+
+    const uniqueCountry = [...new Set(props.crimeData.reduce((all, current) => {
+        return all.concat([current.MCPP]);
+    }, []))].sort();
+
     return (
         <>
             <NavbarR />
             <Routes>
                 <Route path="/" element={<AboutPage />} />
-                <Route path="/map" element={<MapPage />} />
-                {/* <Route path="/table" element={<Feature />} /> */}
-                {/* <Route path="/resources" element={<Resources />} /> */}
+                <Route path="/map" element={<MapPage crimeData={crimeData} />} />
+                {/* <Route path="/table" element={<Feature parseCrimeData={parseCrimeData} crimeOptions={uniqueCountry}/>} /> */}
+                {/* <Route path="/tips" /> */}
             </Routes>
             <footer>
                 <div className="container pb-3 pt-3 d-flex flex-column min-vh-10">

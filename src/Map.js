@@ -55,7 +55,7 @@ export function Map(props) {
     const crimeKeysRed = _.groupBy(crimes, 'Offense Parent Group');  // groups all crimes by offense parent groups
     const crimeKeys = Object.keys(crimeKeysRed);  // stores all unique offense parent groups of crimes that occurred
     let crimeOptions = [];  // stores all results from filter
-    
+
     const filteredCrimes = crimes.filter(function (byCrime) {         // filters and stores crime by currently chosen crime group 
         return byCrime['Offense Parent Group'] === currCrime.value;
     });
@@ -69,8 +69,8 @@ export function Map(props) {
         setCrime(crime);
         if (props.onChange) {
             props.onChange(crime);
-          }
-      };
+        }
+    };
 
     // Organizes data so it's readable by React select
     for (let i = 0; i < crimeKeys.length; i++) {
@@ -92,6 +92,20 @@ export function Map(props) {
                 onChange={(option) => handleChange(option)}
                 styles={customStyles}
             />
+            <div>
+                <LoadScript
+                    googleMapsApiKey="AIzaSyApVWOi_L7Do8rTkoGZdUuDrBIZcah4dKE"
+                >
+                    <GoogleMap
+                        mapContainerStyle={containerStyle}
+                        center={center}
+                        zoom={16}
+                    >
+                        { /* Child components, such as markers, info windows, etc. */}
+                        <></>
+                    </GoogleMap>
+                </LoadScript>
+            </div>
         </div>
     );
 }
