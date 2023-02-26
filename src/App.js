@@ -12,15 +12,16 @@ import { Feature } from './Feature';
 function App(props) {
     var crimeData = props.crimeData;
 
-    // const parseCrimeData = props.crimeData.map((crime) => {
-    //     return { ...crime, "Report DateTime": new Date(crime["Report DateTime"]) }
-    // })
+    const parseCrimeData = props.crimeData.map((crime) => {
+        return { ...crime, "Report DateTime": new Date(crime["Report DateTime"]) }
+    })
 
-    // console.log(parseCrimeData);
+    console.log(parseCrimeData);
 
-    // const uniqueCountry = [...new Set(props.crimeData.reduce((all, current) => {
-    //     return all.concat([current.MCPP]);
-    // }, []))].sort();
+    const uniqueCountry = [...new Set(props.crimeData.reduce((all, current) => {
+        return all.concat([current.MCPP]);
+    }, []))].sort();
+
     let testLocations = [
         {
             name: "first",
@@ -40,7 +41,7 @@ function App(props) {
             <Routes>
                 <Route path="/" element={<AboutPage />} />
                 <Route path="/map" element={<MapPage crimeData={crimeData} testLocations={testLocations}/>} />
-                {/* <Route path="/table" element={<Feature parseCrimeData={parseCrimeData} crimeOptions={uniqueCountry}/>} /> */}
+                <Route path="/table" element={<Feature parseCrimeData={parseCrimeData} crimeOptions={uniqueCountry}/>} />
                 {/* <Route path="/tips" /> */}
             </Routes>
             <footer>
