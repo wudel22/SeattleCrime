@@ -47,18 +47,27 @@ const customStyles = {
 
 export function Map(props) {
     const crimes = props.crimeData;   // stores all crimes from props
-    const [currCrime, setCrime] = useState({ value: "DRUG/NARCOTIC OFFENSES", label: "Drug/narcotic offenses" });   // stores current selected crime group
-    const crimeKeysRed = _.groupBy(crimes, 'Offense Parent Group');  // groups all crimes by offense parent groups
+    const crimeKeysRed = _.groupBy(crimes, 'offense_parent_group');  // groups all crimes by offense parent groups
     const crimeKeys = Object.keys(crimeKeysRed);  // stores all unique offense parent groups of crimes that occurred
+    const [currCrime, setCrime] = useState({ value: "LARCENY-THEFT", label: "Larceny-theft" });   // stores current selected crime group
     let crimeOptions = [];  // stores all results from filter
 
-    const filteredCrimes = crimes.filter(function (byCrime) {         // filters and stores crime by currently chosen crime group 
-        return byCrime['Offense Parent Group'] === currCrime.value;
+    Object.filter = (obj, predicate) => 
+    Object.keys(obj)
+          .filter( key => predicate(obj[key]) )
+          .reduce( (res, key) => (res[key] = obj[key], res), {} );
+
+    // console.log(crimes);
+    // console.log(typeof(crimes));
+    // console.log(crimeKeysRed);
+
+    const filteredCrimes = Object.filter(crimes, function (byCrime) {         // filters and stores crime by currently chosen crime group 
+        return byCrime['offense_parent_group'] === currCrime.value;
     });
 
 
-    console.log(filteredCrimes);
-    console.log(currCrime);
+    // console.log(filteredCrimes);
+    // console.log(currCrime);
 
     // Changes the current crime group chosen on user input/selection from dropdown
     const handleChange = (crime) => {
@@ -80,7 +89,7 @@ export function Map(props) {
 
     // const testLocations = props.testLocations;
     // console.log(testLocations);
-    console.log(testLocations);
+    // console.log(testLocations);
     
     return (
         // search box

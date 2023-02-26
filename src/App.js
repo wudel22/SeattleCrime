@@ -1,26 +1,36 @@
-import React from 'react';
+import {React, useState, useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { NavbarR } from './Navbar.js'
-import { Map } from './Map.js'
 import { AboutPage } from './pages/About';
 import { MapPage } from './pages/MapPage'
 import { Feature } from './Feature';
 
-<App children={{ map: <Map /> }} />
-
 function App(props) {
-    var crimeData = props.crimeData;
+    // const crimeData = props.crimeData;
 
-    const parseCrimeData = props.crimeData.map((crime) => {
-        return { ...crime, "Report DateTime": new Date(crime["Report DateTime"]) }
-    })
+    const[data, setData] = useState({});
+    
+    useEffect(() => {
+        (async () => {
+          const response = await fetch(
+            "https://data.seattle.gov/resource/tazs-3rd5.json?$select=report_datetime,mcpp,offense_parent_group,offense,longitude,latitude,offense_id&$order=report_datetime DESC&$limit=1000"
+          );
+          const parsed = await response.json();
+          setData(parsed);
+        })();
+      }, []);
 
-    console.log(parseCrimeData);
 
-    const uniqueCountry = [...new Set(props.crimeData.reduce((all, current) => {
-        return all.concat([current.MCPP]);
-    }, []))].sort();
+    // const parseCrimeData = props.crimeData.map((crime) => {
+    //     return { ...crime, "Report DateTime": new Date(crime["Report DateTime"]) }
+    // })
+
+    // // console.log(parseCrimeData);
+
+    // const uniqueCountry = [...new Set(props.crimeData.reduce((all, current) => {
+    //     return all.concat([current.MCPP]);
+    // }, []))].sort();
 
     let testLocations = [
         {
@@ -40,8 +50,8 @@ function App(props) {
             <NavbarR />
             <Routes>
                 <Route path="/" element={<AboutPage />} />
-                <Route path="/map" element={<MapPage crimeData={crimeData} testLocations={testLocations}/>} />
-                <Route path="/table" element={<Feature parseCrimeData={parseCrimeData} crimeOptions={uniqueCountry}/>} />
+                <Route path="/map" element={<MapPage crimeData={data} testLocations={testLocations}/>} />
+                {/* <Route path="/table" element={<Feature parseCrimeData={parseCrimeData} crimeOptions={uniqueCountry}/>} /> */}
                 {/* <Route path="/tips" /> */}
             </Routes>
             <footer>

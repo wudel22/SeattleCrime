@@ -16,8 +16,6 @@ export function Table(props){
     //         return crime["Report DateTime"] == date
     //     })
     // }
-
-        
     
 
 
