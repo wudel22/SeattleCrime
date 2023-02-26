@@ -11,23 +11,35 @@ import { Feature } from './Feature';
 
 function App(props) {
     var crimeData = props.crimeData;
-    
-    const parseCrimeData = props.crimeData.map((crime) => {
-        return { ...crime, "Report DateTime": new Date(crime["Report DateTime"]) }
-    })
 
-    console.log(parseCrimeData);
+    // const parseCrimeData = props.crimeData.map((crime) => {
+    //     return { ...crime, "Report DateTime": new Date(crime["Report DateTime"]) }
+    // })
 
-    const uniqueCountry = [...new Set(props.crimeData.reduce((all, current) => {
-        return all.concat([current.MCPP]);
-    }, []))].sort();
+    // console.log(parseCrimeData);
+
+    // const uniqueCountry = [...new Set(props.crimeData.reduce((all, current) => {
+    //     return all.concat([current.MCPP]);
+    // }, []))].sort();
+    let testLocations = [
+        {
+            name: "first",
+            lat: "47.64072691",
+            long: "-122.277063754"
+        },
+        {
+            name: "second",
+            lat: "47.69061787",
+            long: "-122.359314737"
+        },
+    ]
 
     return (
         <>
             <NavbarR />
             <Routes>
                 <Route path="/" element={<AboutPage />} />
-                <Route path="/map" element={<MapPage crimeData={crimeData} />} />
+                <Route path="/map" element={<MapPage crimeData={crimeData} testLocations={testLocations}/>} />
                 {/* <Route path="/table" element={<Feature parseCrimeData={parseCrimeData} crimeOptions={uniqueCountry}/>} /> */}
                 {/* <Route path="/tips" /> */}
             </Routes>
