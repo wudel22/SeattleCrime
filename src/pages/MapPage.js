@@ -6,7 +6,7 @@ export function MapPage(props) {
         <>
             <section id="top">
                 <img src={"img/pike.jpg"} alt="Seattle pier"
-                    title="Image by David Mark from Pixabay" className="header-img"/>
+                    title="Image by David Mark from Pixabay" className="header-img" />
             </section>
             <section id="section-0" className="container">
                 <div className="jumbotron jumbotron-fluid bg-dark text-light">
@@ -22,7 +22,7 @@ export function MapPage(props) {
             <section id="section-2" className="container">
                 <p>Developer note: The filters are currently working (they print to the developer console. For the next draft, we plan to get the filtered data onto the map as markers).</p>
             </section>
-            <Map crimeData={props.crimeData} />
+                <Map crimeData={props.crimeData} />
             <section id="section-3" className="container">
 
             </section>

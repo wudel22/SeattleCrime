@@ -1,6 +1,5 @@
 import React from 'react'
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
-import { Marker } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, MarkerF, MarkerClusterer } from '@react-google-maps/api';
 import { InfoBox } from '@react-google-maps/api';
 import _ from 'lodash'
 import { useState } from 'react';
@@ -25,11 +24,8 @@ const customStyles = {
     control: (base, state) => ({
         ...base,
         background: "#71797E",
-        // match with the menu
         borderRadius: state.isFocused ? "3px 3px 0 0" : 3,
-        // Overwrites the different states of border
         borderColor: state.isFocused ? "white" : "#adb5bd",
-        // Removes weird border around container
         boxShadow: state.isFocused ? null : null,
     }),
     singleValue: base => ({
@@ -67,9 +63,6 @@ export function Map(props) {
     // Changes the current crime group chosen on user input/selection from dropdown
     const handleChange = (crime) => {
         setCrime(crime);
-        if (props.onChange) {
-            props.onChange(crime);
-        }
     };
 
     // Organizes data so it's readable by React select
@@ -81,17 +74,29 @@ export function Map(props) {
         });
     }
 
+    function createKey(location) {
+        return location.lat + location.lng
+    }
+
+    // const testLocations = props.testLocations;
+    // console.log(testLocations);
+    console.log(testLocations);
+    
     return (
         // search box
         <div>
-            <Select
-                value={currCrime}
-                placeholder="Search a crime"
-                label="Single select"
-                options={crimeOptions}
-                onChange={(option) => handleChange(option)}
-                styles={customStyles}
-            />
+            <div className="d-flex justify-content-center">
+                <div className='w-75 p-3'>
+                    <Select
+                        value={currCrime}
+                        placeholder="Search a crime"
+                        label="Single select"
+                        options={crimeOptions}
+                        onChange={(option) => handleChange(option)}
+                        styles={customStyles}
+                    />
+                </div>
+            </div>
             <div>
                 <LoadScript
                     googleMapsApiKey="AIzaSyApVWOi_L7Do8rTkoGZdUuDrBIZcah4dKE"
@@ -102,6 +107,13 @@ export function Map(props) {
                         zoom={16}
                     >
                         { /* Child components, such as markers, info windows, etc. */}
+                        {/* <MarkerClusterer >
+                            {(clusterer) =>
+                                props.testLocations.map((location) => (
+                                    <MarkerF key={createKey(location)} position={location} clusterer={clusterer} />
+                                ))
+                            }
+                        </MarkerClusterer> */}
                         <></>
                     </GoogleMap>
                 </LoadScript>
@@ -109,22 +121,3 @@ export function Map(props) {
         </div>
     );
 }
-
-// export function Map(props) {
-//   return (
-//     <div>
-//     <LoadScript
-//       googleMapsApiKey="AIzaSyApVWOi_L7Do8rTkoGZdUuDrBIZcah4dKE"
-//     >
-//       <GoogleMap
-//         mapContainerStyle={containerStyle}
-//         center={center}
-//         zoom={16}
-//       >
-//         { /* Child components, such as markers, info windows, etc. */ }
-//         <></>
-//       </GoogleMap>
-//     </LoadScript>
-//     </div>
-//   );
-// }
