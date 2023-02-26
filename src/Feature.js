@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Table} from './Table';
 //import DatePicker from 'react-datepicker';
 
 export function Feature(props){
-    const {parseCrimeData} = props;
+    const {parseCrimeData, gotData} = props;
 
     const dates = parseCrimeData.map((crime) => {
-        return crime["Report DateTime"]
+        return crime["report_datetime"]
     });
 
     /*let onlyDate = dates.map((date) =>{

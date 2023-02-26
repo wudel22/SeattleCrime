@@ -5,9 +5,11 @@ export function Table(props){
     let crimeData = parseCrimeData;
     console.log(crimeData);
 
-    if(county != ""){
+
+
+    if (county != ""){
         crimeData = crimeData.filter((crime) => {
-            return crime.MCPP == county
+            return crime.mcpp == county;
         })
     }
 
@@ -16,19 +18,15 @@ export function Table(props){
     //         return crime["Report DateTime"] == date
     //     })
     // }
-    
-
-
-    console.log(crimeData);
 
     let tableRow = crimeData.map((crime) => {
         
         return(
-            <tr key={crime["Offense ID"]}>
-                <td>{crime["Report DateTIme"]}</td>
-                <td>{crime.MCPP}</td>
-                <td>{crime["Offense Parent Group"]}</td>
-                <td>{crime.Offense}</td>
+            <tr key={crime["offense_id"]}>
+                <td>{crime["report_datetime"]}</td>
+                <td>{crime.mcpp}</td>
+                <td>{crime["offense_parent_group"]}</td>
+                <td>{crime.offense}</td>
             </tr>
         )
     })

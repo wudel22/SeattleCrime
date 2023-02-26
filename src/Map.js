@@ -7,7 +7,7 @@ import Select from 'react-select'
 
 // Filter the crime data by offense (or by all)
 const containerStyle = {
-    width: window.innerWidth,
+    width: "100%",
     height: window.innerHeight
 };
 
@@ -66,8 +66,8 @@ export function Map(props) {
     });
 
 
-    // console.log(filteredCrimes);
-    // console.log(currCrime);
+    console.log(filteredCrimes);
+    console.log(currCrime);
 
     // Changes the current crime group chosen on user input/selection from dropdown
     const handleChange = (crime) => {
@@ -106,7 +106,7 @@ export function Map(props) {
                     />
                 </div>
             </div>
-            <div>
+            <div className='w-100'>
                 <LoadScript
                     googleMapsApiKey="AIzaSyApVWOi_L7Do8rTkoGZdUuDrBIZcah4dKE"
                 >

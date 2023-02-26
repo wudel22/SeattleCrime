@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from 'react';
+import { React, useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { NavbarR } from './Navbar.js'
@@ -8,29 +8,27 @@ import { Feature } from './Feature';
 
 function App(props) {
     // const crimeData = props.crimeData;
+    const [data, setData] = useState({});
 
-    const[data, setData] = useState({});
-    
     useEffect(() => {
         (async () => {
-          const response = await fetch(
-            "https://data.seattle.gov/resource/tazs-3rd5.json?$select=report_datetime,mcpp,offense_parent_group,offense,longitude,latitude,offense_id&$order=report_datetime DESC&$limit=1000"
-          );
-          const parsed = await response.json();
-          setData(parsed);
+            const response = await fetch(
+                "https://data.seattle.gov/resource/tazs-3rd5.json?$select=report_datetime,mcpp,offense_parent_group,offense,longitude,latitude,offense_id&$order=report_datetime DESC&$limit=1000"
+            );
+            const parsed = await response.json();
+            setData(parsed);
+            // const parseCrimeData = parsed.map((crime) => {
+            //     return { ...crime, "Report DateTime": new Date(crime["Report DateTime"]) }
+            // })
+            // setData(parseCrimeData);
         })();
-      }, []);
+    }, []);
 
-
-    // const parseCrimeData = props.crimeData.map((crime) => {
-    //     return { ...crime, "Report DateTime": new Date(crime["Report DateTime"]) }
-    // })
-
-    // // console.log(parseCrimeData);
-
-    // const uniqueCountry = [...new Set(props.crimeData.reduce((all, current) => {
+    // const uniqueCounty = [...new Set(props.crimeData.reduce((all, current) => {
     //     return all.concat([current.MCPP]);
     // }, []))].sort();
+
+    const uniqueCounty = ['ALASKA JUNCTION', 'ALKI', 'BALLARD NORTH', 'BALLARD SOUTH', 'BELLTOWN', 'BITTERLAKE', 'BRIGHTON/DUNLAP', 'CAPITOL HILL', 'CENTRAL AREA/SQUIRE PARK', 'CHINATOWN/INTERNATIONAL DISTRICT', 'CLAREMONT/RAINIER VISTA', 'COLUMBIA CITY', 'COMMERCIAL DUWAMISH', 'COMMERCIAL HARBOR ISLAND', 'DOWNTOWN COMMERCIAL', 'EASTLAKE - EAST', 'EASTLAKE - WEST', 'FAUNTLEROY SW', 'FIRST HILL', 'FREMONT', 'GENESEE', 'GEORGETOWN', 'GREENWOOD', 'HIGH POINT', 'HIGHLAND PARK', 'HILLMAN CITY', 'JUDKINS PARK/NORTH BEACON HILL', 'LAKECITY', 'LAKEWOOD/SEWARD PARK', 'MADISON PARK', 'MADRONA/LESCHI', 'MAGNOLIA', 'MID BEACON HILL', 'MILLER PARK', 'MONTLAKE/PORTAGE BAY', 'MORGAN', 'MOUNT BAKER', 'NEW HOLLY', 'NORTH ADMIRAL', 'NORTH BEACON HILL', 'NORTH DELRIDGE', 'NORTHGATE', 'PHINNEY RIDGE', 'PIGEON POINT', 'PIONEER SQUARE', 'QUEEN ANNE', 'RAINIER BEACH', 'RAINIER VIEW', 'ROOSEVELT/RAVENNA', 'ROXHILL/WESTWOOD/ARBOR HEIGHTS', 'SANDPOINT', 'SLU/CASCADE', 'SODO', 'SOUTH BEACON HILL', 'SOUTH DELRIDGE', 'SOUTH PARK', 'UNIVERSITY', 'UNKNOWN', 'WALLINGFORD'];
 
     let testLocations = [
         {
@@ -50,8 +48,8 @@ function App(props) {
             <NavbarR />
             <Routes>
                 <Route path="/" element={<AboutPage />} />
-                <Route path="/map" element={<MapPage crimeData={data} testLocations={testLocations}/>} />
-                {/* <Route path="/table" element={<Feature parseCrimeData={parseCrimeData} crimeOptions={uniqueCountry}/>} /> */}
+                <Route path="/map" element={<MapPage crimeData={data} testLocations={testLocations} />} />
+                <Route path="/table" element={<Feature parseCrimeData={data} crimeOptions={uniqueCounty}/>} />
                 {/* <Route path="/tips" /> */}
             </Routes>
             <footer>
