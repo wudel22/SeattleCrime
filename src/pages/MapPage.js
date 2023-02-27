@@ -16,7 +16,7 @@ export function MapPage(props) {
             </section>
 
             <section id="section-1" className="container">
-                <p>Check the map below for a visual representation of the crimes that happen in the Seattle area.</p>
+                <p>Check the map below for a visual representation of the crimes that happen in the Seattle area. The data is of the last 1000 crimes that happened in Seattle.</p>
             </section>
 
             <section id="section-2" className="container">

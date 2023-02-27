@@ -7,8 +7,8 @@ export function SingleCard(props) {
 
     return (
         <div className="col col-md-6 col-sm-12 col-xl-3 d-flex">
-            <div className="card mb-4 mt-4 shadow">
-                <Card style={{ width: '18rem' }}>
+            <div className="card mb-4 mt-4 ml-2 mr-2 shadow">
+                <Card style={{ width: '17rem' }}>
                     <Card.Img variant="top" src={cardInfo.imageSource} alt={cardInfo.alt} />
                     <Card.Body>
                         <Card.Title className="text-danger">{cardInfo.title}</Card.Title>
