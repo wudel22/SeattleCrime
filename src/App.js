@@ -5,6 +5,7 @@ import { NavbarR } from './Navbar.js'
 import { AboutPage } from './pages/About';
 import { MapPage } from './pages/MapPage'
 import { Feature } from './pages/TablePage';
+import { Resources } from './pages/ResourcesPage'
 
 function App(props) {
     // const crimeData = props.crimeData;
@@ -50,7 +51,7 @@ function App(props) {
                 <Route path="/" element={<AboutPage />} />
                 <Route path="/map" element={<MapPage crimeData={data} testLocations={testLocations} />} />
                 <Route path="/table" element={<Feature parseCrimeData={data} crimeOptions={uniqueCounty}/>} />
-                {/* <Route path="/tips" /> */}
+                <Route path="/tips" element={<Resources />}/>
             </Routes>
             <footer>
                 <div className="container pb-3 pt-3 d-flex flex-column min-vh-10">
