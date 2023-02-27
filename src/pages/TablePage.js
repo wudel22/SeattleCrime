@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Table} from './Table';
+import {Table} from '../Table';
 //import DatePicker from 'react-datepicker';
 
 export function Feature(props){
@@ -45,7 +45,12 @@ export function Feature(props){
     }
 
     return(
+        
         <div className="bg-secondary">
+            <section id="top">
+                <img src={"img/pier.jpg"} alt="Seattle pier 56"
+                    title="Image by Ally Laws from Pixabay" className="header-img"/>
+            </section>
         <div className="container"></div>
         <div className="row"></div>
         <div className="col-md-12"></div>

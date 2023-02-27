@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { NavbarR } from './Navbar.js'
 import { AboutPage } from './pages/About';
 import { MapPage } from './pages/MapPage'
-import { Feature } from './Feature';
+import { Feature } from './pages/TablePage';
 
 function App(props) {
     // const crimeData = props.crimeData;
