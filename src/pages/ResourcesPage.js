@@ -1,6 +1,38 @@
 import React from 'react';
+import { SingleCard } from '../Card.js';
 
 export function Resources() {
+    const cardInfo = [
+        {
+            imageSource: "img/crime-prevention.jpg",
+            alt: "Crime Prevention sign",
+            title: "Resource 1",
+            description: "A website providing crime prevention services and tips in Seattle",
+            link: "https://www.seattle.gov/police/crime-prevention",
+        },
+        {
+            imageSource: "img/Card2Img.jpg",
+            alt: "People huddling after a crime",
+            title: "Resource 2",
+            description: "This resource will lead you to the Seattle Crime Prevention Program",
+            link: "https://www.ojp.gov/ncjrs/virtual-library/abstracts/community-crime-prevention-program-seattle-washington-exemplary",
+        },
+        {
+            imageSource: "img/report-crime.jpg",
+            alt: "Report a crime logo",
+            title: "Resource 3",
+            description: "A website that provides a crime reporting service and advice",
+            link: "https://www.seattle.gov/police/need-help/online-reporting",
+        },
+        {
+            imageSource: "img/Screen Shot 2023-01-30 at 6.03.01 PM.png",
+            alt: "Do not cross yellow tape",
+            title: "Resource 4",
+            description: "This resource shows multiple ways to save yourself from a crime",
+            link: "https://www.seattleu.edu/safety/crime-prevention/",
+        }
+    ];
+
     return (
         <>
             <section id="top">
@@ -16,102 +48,10 @@ export function Resources() {
 
             <div className="container">
                 <div className="row">
-
-                    <div className="col col-md-6 col-sm-12 col-xl-3 d-flex">
-                        <div className="card mb-4 mt-4 shadow">
-                            <div className="card-body">
-                                <div className="row">
-                                    <div className="col col-sm-auto col-xl-12">
-                                        <img className="pb-3 img-fluid" src={"img/crime-prevention.jpg"} alt="Crime Prevention" />
-                                    </div>
-                                    <div className="col-sm">
-                                        <h2 className="card-title text-danger">Resource 1</h2>
-                                        <p className="card-text text-dark">A website providing crime prevention services and tips in Seattle</p>
-                                        <a href="https://www.seattle.gov/police/crime-prevention" className="btn btn-dark">Check out this Resource</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col col-md-6 col-sm-12 col-xl-3 d-flex">
-                        <div className="card mb-4 mt-4 shadow">
-                            <div className="card-body">
-                                <div className="row">
-                                    <div className="col col-sm-auto col-xl-12">
-                                        <img className="pb-3 img-fluid" src={"img/Card2Img.jpg"} alt="Seattle Crime Prevention" />
-                                    </div>
-                                    <div className="col-sm">
-                                        <h2 className="card-title text-danger">Resource 2</h2>
-                                        <p className="card-text text-dark"> This resource will lead you to the Seattle Crime Prevention Program</p>
-                                        <a href="https://www.ojp.gov/ncjrs/virtual-library/abstracts/community-crime-prevention-program-seattle-washington-exemplary"
-                                            className="btn btn-dark">Check out this Resource</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col col-md-6 col-sm-12 col-xl-3 d-flex">
-                        <div className="card mb-4 mt-4 shadow">
-                            <div className="card-body">
-                                <div className="row">
-                                    <div className="col col-sm-auto col-xl-12">
-                                        <img className="pb-3 img-fluid" src={"img/report-crime.jpg"} alt="Crime Reporting" />
-                                    </div>
-                                    <div className="col-sm">
-                                        <h2 className="card-title text-danger">Resource 3</h2>
-                                        <p className="card-text text-dark">A website that provides a crime reporting service and advice</p>
-                                        <a href="https://www.seattle.gov/police/need-help/online-reporting" className="btn btn-dark">Check out this Resource</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col col-md-6 col-sm-12 col-xl-3 d-flex">
-                        <div className="card mb-4 mt-4 shadow">
-                            <div className="card-body">
-                                <div className="row">
-                                    <div className="col col-sm-auto col-xl-12">
-                                        <img className="pb-3 img-fluid" src={"img/Screen Shot 2023-01-30 at 6.03.01 PM.png"} alt="" />
-                                    </div>
-                                    <div className="col-sm">
-                                        <h2 className="card-title text-danger">Resource 4</h2>
-                                        <p className="card-text text-dark">This resource shows multiple ways to save yourself from a crime</p>
-                                        <a href="https://www.seattleu.edu/safety/crime-prevention/" className="btn btn-dark">Check out this Resource</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* <div className="col col-md-6 col-sm-12 col-xl-3 d-flex">
-                        <div className="card mb-4 mt-4 col-sm shadow">
-                            <div className="card-body">
-                                <h2 className="card-title text-danger">Submit a Resource</h2>
-                                <form>
-                                    <div className="form-group">
-                                        <label for="resource">Resource Link:</label>
-                                        <input type="text" className="form-control" id="resource" placeholder="Enter resource link" />
-                                    </div>
-                                    <button type="submit" className="btn btn-dark">Submit</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div> */}
-
-                    <div className="col col-md-6 col-sm-12 col-xl-3 d-flex">
-                        <div className="card mb-4 mt-4 col-sm shadow">
-                            <div className="card-body">
-                                <h2 className="card-title text-danger">List of Websites</h2>
-                                <ul className="list-group">
-                                    <li className="list-group-item"><a href="https://www.seattle.gov/police/crime-prevention">Seattle Police Department - Crime Prevention</a></li>
-                                    <li className="list-group-item"><a href="https://www.seattle.gov/police/need-help/preventing-crime">Seattle Police Department - Preventing Crime</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <SingleCard cardInfo={cardInfo[0]} />
+                    <SingleCard cardInfo={cardInfo[1]} />
+                    <SingleCard cardInfo={cardInfo[2]} />
+                    <SingleCard cardInfo={cardInfo[3]} />
                 </div>
             </div>
         </>
