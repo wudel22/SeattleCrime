@@ -31,25 +31,12 @@ function App(props) {
 
     const uniqueCounty = ['ALASKA JUNCTION', 'ALKI', 'BALLARD NORTH', 'BALLARD SOUTH', 'BELLTOWN', 'BITTERLAKE', 'BRIGHTON/DUNLAP', 'CAPITOL HILL', 'CENTRAL AREA/SQUIRE PARK', 'CHINATOWN/INTERNATIONAL DISTRICT', 'CLAREMONT/RAINIER VISTA', 'COLUMBIA CITY', 'COMMERCIAL DUWAMISH', 'COMMERCIAL HARBOR ISLAND', 'DOWNTOWN COMMERCIAL', 'EASTLAKE - EAST', 'EASTLAKE - WEST', 'FAUNTLEROY SW', 'FIRST HILL', 'FREMONT', 'GENESEE', 'GEORGETOWN', 'GREENWOOD', 'HIGH POINT', 'HIGHLAND PARK', 'HILLMAN CITY', 'JUDKINS PARK/NORTH BEACON HILL', 'LAKECITY', 'LAKEWOOD/SEWARD PARK', 'MADISON PARK', 'MADRONA/LESCHI', 'MAGNOLIA', 'MID BEACON HILL', 'MILLER PARK', 'MONTLAKE/PORTAGE BAY', 'MORGAN', 'MOUNT BAKER', 'NEW HOLLY', 'NORTH ADMIRAL', 'NORTH BEACON HILL', 'NORTH DELRIDGE', 'NORTHGATE', 'PHINNEY RIDGE', 'PIGEON POINT', 'PIONEER SQUARE', 'QUEEN ANNE', 'RAINIER BEACH', 'RAINIER VIEW', 'ROOSEVELT/RAVENNA', 'ROXHILL/WESTWOOD/ARBOR HEIGHTS', 'SANDPOINT', 'SLU/CASCADE', 'SODO', 'SOUTH BEACON HILL', 'SOUTH DELRIDGE', 'SOUTH PARK', 'UNIVERSITY', 'UNKNOWN', 'WALLINGFORD'];
 
-    let testLocations = [
-        {
-            name: "first",
-            lat: "47.64072691",
-            long: "-122.277063754"
-        },
-        {
-            name: "second",
-            lat: "47.69061787",
-            long: "-122.359314737"
-        },
-    ]
-
     return (
         <>
             <NavbarR />
             <Routes>
                 <Route path="/" element={<AboutPage />} />
-                <Route path="/map" element={<MapPage crimeData={data} testLocations={testLocations} />} />
+                <Route path="/map" element={<MapPage crimeData={data} />} />
                 <Route path="/table" element={<Feature parseCrimeData={data} crimeOptions={uniqueCounty}/>} />
                 <Route path="/tips" element={<Resources />}/>
             </Routes>

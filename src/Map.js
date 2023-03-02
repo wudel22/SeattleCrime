@@ -1,6 +1,5 @@
 import React from 'react'
-import { GoogleMap, LoadScript, MarkerF, MarkerClusterer } from '@react-google-maps/api';
-import { InfoBox } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, MarkerF, InfoBoxF } from '@react-google-maps/api';
 import _ from 'lodash'
 import { useState } from 'react';
 import Select from 'react-select'
@@ -17,7 +16,6 @@ const center = {
 };
 
 const markerCenters = {
-
 }
 
 const customStyles = {
@@ -52,10 +50,10 @@ export function Map(props) {
     const [currCrime, setCrime] = useState({ value: "LARCENY-THEFT", label: "Larceny-theft" });   // stores current selected crime group
     let crimeOptions = [];  // stores all results from filter
 
-    Object.filter = (obj, predicate) => 
-    Object.keys(obj)
-          .filter( key => predicate(obj[key]) )
-          .reduce( (res, key) => (res[key] = obj[key], res), {} );
+    Object.filter = (obj, predicate) =>
+        Object.keys(obj)
+            .filter(key => predicate(obj[key]))
+            .reduce((res, key) => (res[key] = obj[key], res), {});
 
     // console.log(crimes);
     // console.log(typeof(crimes));
@@ -83,14 +81,42 @@ export function Map(props) {
         });
     }
 
-    function createKey(location) {
-        return location.lat + location.lng
-    }
+    // function createKey(location) {
+    //     return location.lat + location.lng
+    // }
 
     // const testLocations = props.testLocations;
     // console.log(testLocations);
     // console.log(testLocations);
-    
+
+    const [infoBoxID, setInfoBoxID] = useState("");
+    let markers;
+
+    //note this function isnt going off rn
+    markers = Array.from(filteredCrimes).map((location, i) => {
+        const marker = { lat: location.latitude, lng: location.longitude };
+        const index = i + 1;
+        console.log(filteredCrimes);
+        return (
+            <MarkerF
+                key={index}
+                position={marker}
+                label={index.toString()}
+                onClick={() => {
+                    setInfoBoxID(index);
+                }}
+            >
+                {infoBoxID === index && (
+                    <InfoBoxF>
+                        <span>Test {index}</span>
+                    </InfoBoxF>
+                )}
+            </MarkerF>
+        )
+    })
+
+    console.log(markers);
+
     return (
         // search box
         <div>
@@ -115,6 +141,7 @@ export function Map(props) {
                         center={center}
                         zoom={16}
                     >
+                        {markers}
                         { /* Child components, such as markers, info windows, etc. */}
                         {/* <MarkerClusterer >
                             {(clusterer) =>
