@@ -73,6 +73,10 @@ h3 {
   background-color: #ff00884e;
 }
 
+.cardShadow {
+  box-shadow: 0px 0px 25px 1px #000000;
+}
+
 /* Footer rules */
 footer {
   background-color: #6c757d;
