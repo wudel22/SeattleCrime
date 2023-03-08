@@ -1,5 +1,6 @@
 import React from 'react';
 import { SingleCard } from '../Card.js';
+import { AddCard } from './AddCard.js';
 
 export function Resources() {
     const cardInfo = [
@@ -39,12 +40,17 @@ export function Resources() {
                 <img src={"img/seattle-skyline.jpg"} alt="Seattle Space Needle and buildings"
                     title="Image by Ally Laws from Pixabay" className="header-img" />
             </section>
-            <section id="section-0" className="container">
-                <div className="jumbotron jumbotron-fluid bg-dark text-light">
-                    <h1 className="display-4 ">Resources and Tips</h1>
-                    <p className="lead">Outside resources you can refer to have a safer life.</p>
+            <div className="container">
+                <div className="row">
+                    <section id="section-0" className="container col-12">
+                        <div className="jumbotron jumbotron-fluid bg-dark text-light">
+                            <h1 className="display-4 ">Resources and Tips</h1>
+                            <p className="lead">Outside resources you can refer to have a safer life.</p>
+                        </div>
+                    </section>
+                    <AddCard />
                 </div>
-            </section>
+            </div>
 
             <div className="container">
                 <div className="row">
