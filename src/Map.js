@@ -87,35 +87,35 @@ export function Map(props) {
 
     // const testLocations = props.testLocations;
     // console.log(testLocations);
-    // console.log(testLocations);
 
     const [infoBoxID, setInfoBoxID] = useState("");
     let markers;
+    
+    const arrayFilteredCrimes = Object.entries(filteredCrimes).map(([id, obj]) => ({ id, ...obj }))
+    console.log(arrayFilteredCrimes);
 
-    //note this function isnt going off rn
-    markers = Array.from(filteredCrimes).map((location, i) => {
-        const marker = { lat: location.latitude, lng: location.longitude };
-        const index = i + 1;
-        console.log(filteredCrimes);
-        return (
-            <MarkerF
-                key={index}
-                position={marker}
-                label={index.toString()}
-                onClick={() => {
-                    setInfoBoxID(index);
-                }}
-            >
-                {infoBoxID === index && (
-                    <InfoBoxF>
-                        <span>Test {index}</span>
-                    </InfoBoxF>
-                )}
-            </MarkerF>
-        )
-    })
-
-    console.log(markers);
+    if (filteredCrimes !== null) {
+        markers = arrayFilteredCrimes.map((location, i) => {
+            const pos = { lat: parseFloat(location.latitude), lng: parseFloat(location.longitude) };
+            const index = i + 1;
+            return (
+                <MarkerF
+                    key={index}
+                    position={pos}
+                    label={index.toString()}
+                    onClick={() => {
+                        setInfoBoxID(index);
+                    }}
+                >
+                    {infoBoxID === index && (
+                        <InfoBoxF>
+                            <span>Test {index}</span>
+                        </InfoBoxF>
+                    )}
+                </MarkerF>
+            );
+        });
+    }
 
     return (
         // search box
