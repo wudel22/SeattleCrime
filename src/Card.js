@@ -15,7 +15,7 @@ export function SingleCard(props) {
                         <Card.Text className="text-dark">
                             {cardInfo.description}
                         </Card.Text>
-                        <Button href={cardInfo.link} className="btn btn-dark">Check out this Resource</Button>
+                        <Button href={cardInfo.link} className="btn btn-dark" target='_blank'>Check out this Resource</Button>
                     </Card.Body>
                 </Card>
             </div>
