@@ -95,6 +95,30 @@ footer p {
   padding: 10px;
 }
 
+.card {
+  position: relative;
+}
+
+.deleteButton {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  top: -5px;
+  right: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+}
+
+.deleteButton:hover {
+  background-color: rgb(244, 66, 54, 1);
+}
+
+.deleteButton > .deleteImage {
+  width: 2em;
+  height: 2.8em;
+}
+
 /* Media rules */
 @media(min-width: 768px) {
   html {

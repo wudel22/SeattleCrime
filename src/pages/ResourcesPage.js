@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SingleCard } from '../Card.js';
 import { AddCard } from './AddCard.js';
+import { addCard, getCards, removeCard } from "../firebase.js";
 
 const imagePaths = [
     "resource_img/Card2Img.jpg",
@@ -16,76 +17,37 @@ const imagePaths = [
 ];
 
 export function Resources() {
-    const [array, setArray] = useState([
-        {
-            imageSource: "img/crime-prevention.jpg",
-            alt: "Crime Prevention sign",
-            title: "Resource 1",
-            description: "A website providing crime prevention services and tips in Seattle",
-            link: "https://www.seattle.gov/police/crime-prevention",
-        },
-        {
-            imageSource: "img/Card2Img.jpg",
-            alt: "People huddling after a crime",
-            title: "Resource 2",
-            description: "This resource will lead you to the Seattle Crime Prevention Program",
-            link: "https://www.ojp.gov/ncjrs/virtual-library/abstracts/community-crime-prevention-program-seattle-washington-exemplary",
-        },
-        {
-            imageSource: "img/report-crime.jpg",
-            alt: "Report a crime logo",
-            title: "Resource 3",
-            description: "A website that provides a crime reporting service and advice",
-            link: "https://www.seattle.gov/police/need-help/online-reporting",
-        },
-        {
-            imageSource: "img/Screen Shot 2023-01-30 at 6.03.01 PM.png",
-            alt: "Do not cross yellow tape",
-            title: "Resource 4",
-            description: "This resource shows multiple ways to save yourself from a crime",
-            link: "https://www.seattleu.edu/safety/crime-prevention/",
-        }
-    ]);
+    const [array, setArray] = useState([]);
+
+    useEffect(() => {
+        getCards().then((cards) => {
+            //console.log(cards);
+            const sortedCards = cards.sort((a, b) => {
+                return a.title < b.title ? -1
+                    : a.title > b.title ? 1
+                    : 0
+            });
+            console.log(sortedCards);
+            setArray(sortedCards);
+        });
+    }, []);
     
     function addResource(link, description) {
-        setArray([...array, {
+        const newCard = {
             imageSource: imagePaths[Math.floor(Math.random()*imagePaths.length)],
             alt: "",
             title: "Resource " + (array.length + 1),
             description,
             link,
-        }]);
+        };
+        setArray([...array, newCard]);
+        addCard(newCard);
     }
-    // const cardInfo = [
-    //     {
-    //         imageSource: "img/crime-prevention.jpg",
-    //         alt: "Crime Prevention sign",
-    //         title: "Resource 1",
-    //         description: "A website providing crime prevention services and tips in Seattle",
-    //         link: "https://www.seattle.gov/police/crime-prevention",
-    //     },
-    //     {
-    //         imageSource: "img/Card2Img.jpg",
-    //         alt: "People huddling after a crime",
-    //         title: "Resource 2",
-    //         description: "This resource will lead you to the Seattle Crime Prevention Program",
-    //         link: "https://www.ojp.gov/ncjrs/virtual-library/abstracts/community-crime-prevention-program-seattle-washington-exemplary",
-    //     },
-    //     {
-    //         imageSource: "img/report-crime.jpg",
-    //         alt: "Report a crime logo",
-    //         title: "Resource 3",
-    //         description: "A website that provides a crime reporting service and advice",
-    //         link: "https://www.seattle.gov/police/need-help/online-reporting",
-    //     },
-    //     {
-    //         imageSource: "img/Screen Shot 2023-01-30 at 6.03.01 PM.png",
-    //         alt: "Do not cross yellow tape",
-    //         title: "Resource 4",
-    //         description: "This resource shows multiple ways to save yourself from a crime",
-    //         link: "https://www.seattleu.edu/safety/crime-prevention/",
-    //     }
-    // ];
+
+    function deleteCard(link) {
+        removeCard(link);
+        setArray(array.filter((card) => card.link !== link));
+    }
     
     return (
         <>
@@ -107,7 +69,7 @@ export function Resources() {
 
             <div className="container">
                 <div className="row">
-                    {array.map((card) => <SingleCard key={card.link} cardInfo={card} />)}
+                    {array.map((card) => <SingleCard key={card.link} cardInfo={card} deleteCard={deleteCard}/>)}
                 </div>
             </div>
         </>
