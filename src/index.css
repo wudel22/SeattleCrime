@@ -119,6 +119,11 @@ footer p {
   height: 2.8em;
 }
 
+.cardImage {
+  width: 250px;
+  height: 250px;
+}
+
 /* Media rules */
 @media(min-width: 768px) {
   html {

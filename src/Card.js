@@ -17,7 +17,7 @@ export function SingleCard(props) {
                     <Button className="deleteButton p-0" onClick={deleteButtonAction}>
                         <img src="img/deleteicon.png" className="deleteImage" />
                     </Button>
-                    <Card.Img variant="top" src={cardInfo.imageSource} alt={cardInfo.alt} />
+                    <Card.Img variant="top" src={cardInfo.imageSource} alt={cardInfo.alt} className="cardImage"/>
                     <Card.Body>
                         <Card.Title className="text-danger">{cardInfo.title}</Card.Title>
                         <Card.Text className="text-dark">
