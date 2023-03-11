@@ -1,5 +1,5 @@
 import React from 'react'
-import { GoogleMap, LoadScript, MarkerF, InfoBoxF } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, MarkerF, InfoWindowF } from '@react-google-maps/api';
 import _ from 'lodash'
 import { useState } from 'react';
 import Select from 'react-select'
@@ -14,9 +14,6 @@ const center = {
     lat: 47.650017,
     lng: -122.30654
 };
-
-const markerCenters = {
-}
 
 const customStyles = {
     control: (base, state) => ({
@@ -88,29 +85,34 @@ export function Map(props) {
     // const testLocations = props.testLocations;
     // console.log(testLocations);
 
-    const [infoBoxID, setInfoBoxID] = useState("");
+    const [infoWindowID, setInfoWindowID] = useState("");
     let markers;
-    
-    const arrayFilteredCrimes = Object.entries(filteredCrimes).map(([id, obj]) => ({ id, ...obj }))
-    console.log(arrayFilteredCrimes);
+
+    const arrayFilteredCrimes = Object.entries(filteredCrimes).map(([id, obj]) => ({ id, ...obj }));
 
     if (filteredCrimes !== null) {
         markers = arrayFilteredCrimes.map((location, i) => {
             const pos = { lat: parseFloat(location.latitude), lng: parseFloat(location.longitude) };
             const index = i + 1;
+            const crimeDet = location.offense;
+            const crimeDate = location.report_datetime;
             return (
                 <MarkerF
                     key={index}
                     position={pos}
-                    label={index.toString()}
                     onClick={() => {
-                        setInfoBoxID(index);
+                        setInfoWindowID(index);
+                        console.log(infoWindowID)
+                        console.log(index)
                     }}
                 >
-                    {infoBoxID === index && (
-                        <InfoBoxF>
-                            <span>Test {index}</span>
-                        </InfoBoxF>
+                    {infoWindowID === index && (
+                        <InfoWindowF>
+                            <div className="text-dark">
+                                <p>Date: {crimeDate}</p>
+                                <p>Details: {crimeDet}</p>
+                            </div>
+                        </InfoWindowF>
                     )}
                 </MarkerF>
             );
@@ -141,16 +143,8 @@ export function Map(props) {
                         center={center}
                         zoom={16}
                     >
-                        {markers}
                         { /* Child components, such as markers, info windows, etc. */}
-                        {/* <MarkerClusterer >
-                            {(clusterer) =>
-                                props.testLocations.map((location) => (
-                                    <MarkerF key={createKey(location)} position={location} clusterer={clusterer} />
-                                ))
-                            }
-                        </MarkerClusterer> */}
-                        <></>
+                        {markers}
                     </GoogleMap>
                 </LoadScript>
             </div>

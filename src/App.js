@@ -42,7 +42,7 @@ function App(props) {
             </Routes>
             <footer>
                 <div className="container pb-3 pt-3 d-flex flex-column min-vh-10">
-                    <p>&copy; 2023 Ashley Mochizuki, Hannah Wee, Nicole Herman, Delaney Wu </p>
+                    <p>&copy; 2023 Ashley Mochizuki, Hannah Wee, Nicole Herman, Delaney Wu. Data from the <a className="link-w" target="_blank" rel="noreferrer" href="https://www.seattle.gov/police/information-and-data/data/public-data-sets">Seattle Police Department's public crime data set</a>.</p>
                 </div>
             </footer>
         </>
