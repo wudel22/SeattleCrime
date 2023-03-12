@@ -20,7 +20,7 @@ export function MapPage(props) {
             </section>
 
             <section id="section-2" className="container">
-                <p>Select a crime group from the dropdown menu. Click on the red markers on the map to learn more about the crime that occurred in a particular location.</p>
+                <p>Search for a crime group from the dropdown menu. Click on the red markers on the map to learn more about the crime that occurred in a particular location.</p>
             </section>
                 <Map crimeData={props.crimeData} />
             <section id="section-3" className="container">

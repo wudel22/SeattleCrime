@@ -9,7 +9,9 @@ body {
   font-weight: 200;
   background-color: #343a40;
   color: white;
+  caret-color: white;
 }
+
 
 /* "About" page rules */
 h1 {
@@ -99,6 +101,7 @@ footer p {
   position: relative;
 }
 
+/* Resources rules */
 .deleteButton {
   position: absolute;
   background-color: transparent;

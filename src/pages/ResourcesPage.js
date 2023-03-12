@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { SingleCard } from '../Card.js';
-import { AddCard } from './AddCard.js';
+import { AddCard } from '../AddCard.js';
 import { addCard, getCards, removeCard } from "../firebase.js";
 
 const imagePaths = [
@@ -27,7 +27,7 @@ export function Resources() {
                     : a.title > b.title ? 1
                     : 0
             });
-            console.log(sortedCards);
+            // console.log(sortedCards);
             setArray(sortedCards);
         });
     }, []);

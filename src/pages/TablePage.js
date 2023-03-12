@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Table } from '../Table';
 //import DatePicker from 'react-datepicker';
 
 export function Feature(props) {
-    const { parseCrimeData, gotData } = props;
+    const { parseCrimeData } = props;
 
-    const dates = parseCrimeData.map((crime) => {
-        return crime["report_datetime"]
-    });
+    // const dates = parseCrimeData.map((crime) => {
+    //     return crime["report_datetime"]
+    // });
 
     /*let onlyDate = dates.map((date) =>{
         let day = date.getDate();
@@ -26,7 +26,7 @@ export function Feature(props) {
 
     const [county, setCounty] = useState('');
 
-    const [date, setDate] = useState(new Date());
+    // const [date, setDate] = useState(new Date());
 
     const optionElems = props.crimeOptions.map((crime) => {
         return <option key={crime} value={crime}>{crime}</option>
@@ -36,13 +36,13 @@ export function Feature(props) {
         setCounty(event.target.value);
     }
 
-    function dateCallBack(event) {
-        setDate(event.target.value);
-    }
+    // function dateCallBack(event) {
+    //     setDate(event.target.value);
+    // }
 
-    function buttonCallBack() {
-        props.applyFilterCallBack(county, date);
-    }
+    // function buttonCallBack() {
+    //     props.applyFilterCallBack(county, date);
+    // }
 
     return (
 
@@ -51,14 +51,14 @@ export function Feature(props) {
                 <img src={"img/pier.jpg"} alt="Seattle pier 56"
                     title="Image by Ally Laws from Pixabay" className="header-img" />
             </section>
-            <section id="section-0" class="containe bg-dark">
+            <section id="section-0" class="container bg-dark">
                 <div className="jumbotron jumbotron-fluid bg-dark text-light">
                     <h1 className="display-4 ">&#x1F4C8; Table Analysis</h1>
                     <p className="lead">Analysis of collected and organized crime information within
                         Seattle range</p>
                 </div>
             </section>
-            <div className="container">
+            <div className="p-5">
                 <h1>Search Crimes</h1>
                 <h2>Enter name of counties or date to see crimes</h2>
 
@@ -78,8 +78,8 @@ export function Feature(props) {
                         selected= {date}
                         onChange={dateCallBack}/>
                 </form> */}
-
-                <Table parseCrimeData={parseCrimeData} county={county} date={date} />
+                <Table parseCrimeData={parseCrimeData} county={county} />
+                {/* <Table parseCrimeData={parseCrimeData} county={county} date={date} /> */}
             </div>
 
             {/* <div className="row"></div>

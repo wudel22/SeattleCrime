@@ -47,10 +47,15 @@ export function Map(props) {
     const [currCrime, setCrime] = useState({ value: "LARCENY-THEFT", label: "Larceny-theft" });   // stores current selected crime group
     let crimeOptions = [];  // stores all results from filter
 
+    const addKey = (obj, res, key) => {
+        res[key] = obj[key]
+        return res
+    };
+
     Object.filter = (obj, predicate) =>
         Object.keys(obj)
             .filter(key => predicate(obj[key]))
-            .reduce((res, key) => (res[key] = obj[key], res), {});
+            .reduce((res, key) => addKey(obj, res, key), {});
 
     // console.log(crimes);
     // console.log(typeof(crimes));
@@ -61,8 +66,8 @@ export function Map(props) {
     });
 
 
-    console.log(filteredCrimes);
-    console.log(currCrime);
+    // console.log(filteredCrimes);
+    // console.log(currCrime);
 
     // Changes the current crime group chosen on user input/selection from dropdown
     const handleChange = (crime) => {
@@ -78,10 +83,6 @@ export function Map(props) {
         });
     }
 
-    // function createKey(location) {
-    //     return location.lat + location.lng
-    // }
-
     // const testLocations = props.testLocations;
     // console.log(testLocations);
 
@@ -90,6 +91,7 @@ export function Map(props) {
 
     const arrayFilteredCrimes = Object.entries(filteredCrimes).map(([id, obj]) => ({ id, ...obj }));
 
+    // make map markers to be placed on the map using the latitude and longitude from the crime data
     if (filteredCrimes !== null) {
         markers = arrayFilteredCrimes.map((location, i) => {
             const pos = { lat: parseFloat(location.latitude), lng: parseFloat(location.longitude) };
@@ -102,10 +104,11 @@ export function Map(props) {
                     position={pos}
                     onClick={() => {
                         setInfoWindowID(index);
-                        console.log(infoWindowID)
-                        console.log(index)
+                        // console.log(infoWindowID)
+                        // console.log(index)
                     }}
                 >
+                    {/* make the infowindows for the map markers */}
                     {infoWindowID === index && (
                         <InfoWindowF>
                             <div className="text-dark">
@@ -123,7 +126,7 @@ export function Map(props) {
         // search box
         <div>
             <div className="d-flex justify-content-center">
-                <div className='w-75 p-3'>
+                <div className='container mb-5'>
                     <Select
                         value={currCrime}
                         placeholder="Search a crime"
@@ -134,6 +137,8 @@ export function Map(props) {
                     />
                 </div>
             </div>
+
+            {/* map */}
             <div className='w-100'>
                 <LoadScript
                     googleMapsApiKey="AIzaSyApVWOi_L7Do8rTkoGZdUuDrBIZcah4dKE"
