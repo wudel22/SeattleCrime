@@ -3,6 +3,7 @@ import { SingleCard } from '../Card.js';
 import { AddCard } from '../AddCard.js';
 import { addCard, getCards, removeCard } from "../firebase.js";
 
+//An array that stores random images to generate for every new card the user adds
 const imagePaths = [
     {
         img: "resource_img/Card2Img.jpg",
@@ -46,6 +47,7 @@ const imagePaths = [
     }
 ];
 
+//A function that sorts the cards by number/title
 export function Resources() {
     const [array, setArray] = useState([]);
 
@@ -57,11 +59,12 @@ export function Resources() {
                     : a.title > b.title ? 1
                         : 0
             });
-            // console.log(sortedCards);
+            //console.log(sortedCards);
             setArray(sortedCards);
         });
     }, []);
-
+    
+    //A function that adds new cards to the firebase 
     function addResource(link, description) {
         let randy = Math.floor(Math.random() * imagePaths.length);
         const newCard = {

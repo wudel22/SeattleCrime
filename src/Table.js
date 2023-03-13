@@ -1,9 +1,11 @@
 import React from 'react';
 
+//The Table function returns table with the crime data that matches the chosen county 
+
 export function Table(props){
     const {parseCrimeData, county, date} = props;
     let crimeData = parseCrimeData;
-    console.log(crimeData);
+    //console.log(crimeData);
 
 
 
@@ -13,11 +15,7 @@ export function Table(props){
         })
     }
 
-    // if(date != null){
-    //     crimeData = crimeData.filter((crime) => {
-    //         return crime["Report DateTime"] == date
-    //     })
-    // }
+
 
     let tableRow = crimeData.map((crime) => {
         
@@ -31,7 +29,7 @@ export function Table(props){
         )
     })
 
-    console.log(tableRow);
+   // console.log(tableRow);
 
 
     return (
