@@ -17,6 +17,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+//A function to get cards from the firebase
 export async function getCards() {
     const cards = await getDocs(collection(db, "cards"));
     let result = [];
@@ -24,10 +25,12 @@ export async function getCards() {
     return result;
 }
 
+//A function to add cards to the firebase to store
 export async function addCard(someObject) {
     await addDoc(collection(db, "cards"), someObject);
 }
 
+//A function to remove cards from the firebase
 export async function removeCard(cardLink) {
     const docsToDelete = await getDocs(query(collection(db, "cards"), where("link", "==", cardLink)));
     docsToDelete.forEach((doc) => deleteDoc(doc.ref));
