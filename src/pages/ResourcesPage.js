@@ -4,16 +4,46 @@ import { AddCard } from '../AddCard.js';
 import { addCard, getCards, removeCard } from "../firebase.js";
 
 const imagePaths = [
-    "resource_img/Card2Img.jpg",
-    "resource_img/crime_line.jpg",
-    "resource_img/crime_prevention.jpg",
-    "resource_img/crime-prevention.jpg",
-    "resource_img/crime.jpg",
-    "resource_img/handcuff.jpg",
-    "resource_img/mic.png",
-    "resource_img/police_line.jpg",
-    "resource_img/report-crime.jpg",
-    "resource_img/line.png"
+    {
+        img: "resource_img/Card2Img.jpg",
+        alt: "People huddling after disaster"
+    },
+    {
+        img: "resource_img/crime_line.jpg",
+        alt: "Keep out tape"
+    },
+    {
+        img: "resource_img/crime_prevention.jpg",
+        alt: "Crime prevention logo"
+    },
+    {
+        img: "resource_img/crime-prevention.jpg",
+        alt: "Crime prevention sign"
+    },
+    {
+        img: "resource_img/crime.jpg",
+        alt: "Crime decorated text"
+    },
+    {
+        img: "resource_img/handcuff.jpg",
+        alt: "Handcuffs"
+    },
+    {
+        img: "resource_img/mic.png",
+        alt: "Microphones"
+    },
+    {
+        img: "resource_img/police_line.jpg",
+        alt: "Police do not cross line"
+    },
+    {
+        img: "resource_img/report-crime.jpg",
+        alt: "Report a crime logo"
+    },
+    {
+        img: "resource_img/line.png",
+        alt: "Do not cross yellow tape"
+    }
 ];
 
 export function Resources() {
@@ -25,17 +55,18 @@ export function Resources() {
             const sortedCards = cards.sort((a, b) => {
                 return a.title < b.title ? -1
                     : a.title > b.title ? 1
-                    : 0
+                        : 0
             });
             // console.log(sortedCards);
             setArray(sortedCards);
         });
     }, []);
-    
+
     function addResource(link, description) {
+        let randy = Math.floor(Math.random() * imagePaths.length);
         const newCard = {
-            imageSource: imagePaths[Math.floor(Math.random()*imagePaths.length)],
-            alt: "",
+            imageSource: imagePaths[randy].img,
+            alt: imagePaths[randy].alt,
             title: "Resource " + (array.length + 1),
             description,
             link,
@@ -48,7 +79,7 @@ export function Resources() {
         removeCard(link);
         setArray(array.filter((card) => card.link !== link));
     }
-    
+
     return (
         <>
             <section id="top">
@@ -63,13 +94,13 @@ export function Resources() {
                             <p className="lead">Outside resources you can refer to have a safer life.</p>
                         </div>
                     </section>
-                    <AddCard addResource={addResource}/>
+                    <AddCard addResource={addResource} />
                 </div>
             </div>
 
             <div className="container">
                 <div className="row">
-                    {array.map((card) => <SingleCard key={card.link} cardInfo={card} deleteCard={deleteCard}/>)}
+                    {array.map((card) => <SingleCard key={card.link} cardInfo={card} deleteCard={deleteCard} />)}
                 </div>
             </div>
         </>
