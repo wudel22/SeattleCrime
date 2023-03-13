@@ -4,10 +4,10 @@ import React from 'react';
 export function AboutPage() {
     return (
         <>
-            <section id="top">
+            <header id="top">
                 <img src={"img/seattle-skyline.jpg"} alt="Seattle Space Needle and buildings"
                     title="Image by Ally Laws from Pixabay" className="header-img"/>
-            </section>
+            </header>
 
             <section id="section-0" className="container">
                 <div className="jumbotron jumbotron-fluid bg-dark">
