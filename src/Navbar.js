@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 export function NavbarR() {
     return (
-        <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+        <Navbar bg="black" variant="dark" expand="lg" fixed="top">
             <Container>
                 <NavLink to="/" className="nav-link navbar-brand ms-3">Seattle Crime 🔎</NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" aria-label="Toggle navigation" />
